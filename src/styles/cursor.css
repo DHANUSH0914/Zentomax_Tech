@@ -1,80 +1,89 @@
-/* Hide default cursor */
+/* Hide the native cursor everywhere */
 * {
-  cursor: none;
+  cursor: none !important;
 }
 
-/* Main cursor */
-.cursor-main {
+/* ─────────────────────────────────────────
+   DOT  — snaps directly to mouse position
+   ───────────────────────────────────────── */
+.cursor-dot {
   position: fixed;
-  width: 14px;
-  height: 14px;
-  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  will-change: left, top;
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.8), 0 0 40px rgba(0, 255, 136, 0.4);
-  transition: width 0.2s ease-out, height 0.2s ease-out, box-shadow 0.2s ease-out;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-  border: 2px solid rgba(0, 255, 136, 0.6);
-}
-
-.cursor-main.hovering {
-  width: 28px;
-  height: 28px;
-  box-shadow: 0 0 35px rgba(0, 255, 136, 1), 0 0 60px rgba(0, 255, 136, 0.6), inset 0 0 15px rgba(0, 204, 106, 0.5);
-  border: 2px solid rgba(0, 255, 136, 0.9);
-}
-
-/* Cursor particles */
-.cursor-particle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
   background: #e491c9;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  will-change: left, top;
-  box-shadow: 0 0 8px rgba(228, 145, 201, 0.6);
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
+  z-index: 99999;
+  /* Center on pointer */
+  margin-left: -4px;
+  margin-top: -4px;
+  will-change: transform;
+  box-shadow:
+    0 0 6px rgba(228, 145, 201, 0.9),
+    0 0 14px rgba(228, 145, 201, 0.5);
+  transition: width 0.15s ease, height 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
-.cursor-particle:nth-child(1) {
-  width: 8px;
-  height: 8px;
-  box-shadow: 0 0 10px rgba(228, 145, 201, 0.7);
+.cursor-dot.cursor-hovering {
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  background: #ffffff;
+  box-shadow:
+    0 0 10px rgba(228, 145, 201, 1),
+    0 0 24px rgba(152, 37, 152, 0.8);
 }
 
-.cursor-particle:nth-child(2) {
-  width: 6px;
-  height: 6px;
-  opacity: 0.8;
+/* ─────────────────────────────────────────
+   RING — smoothly lags behind the dot
+   ───────────────────────────────────────── */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(228, 145, 201, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  /* Center on pointer */
+  margin-left: -18px;
+  margin-top: -18px;
+  will-change: transform;
+  transition:
+    width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    margin 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
+  background: rgba(152, 37, 152, 0.04);
 }
 
-.cursor-particle:nth-child(3) {
-  width: 5px;
-  height: 5px;
-  opacity: 0.7;
+.cursor-ring.cursor-ring-hovering {
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  margin-top: -26px;
+  border-color: rgba(228, 145, 201, 0.9);
+  background: rgba(152, 37, 152, 0.1);
 }
 
-.cursor-particle:nth-child(4) {
-  width: 4px;
-  height: 4px;
-  opacity: 0.6;
+/* ─────────────────────────────────────────
+   Text / inputs restore native text cursor
+   ───────────────────────────────────────── */
+input,
+textarea,
+select {
+  cursor: text !important;
 }
 
-.cursor-particle:nth-child(5) {
-  width: 3px;
-  height: 3px;
-  opacity: 0.5;
-}
-
-/* Text selection */
+/* ─────────────────────────────────────────
+   Text selection style
+   ───────────────────────────────────────── */
 ::selection {
   background-color: #982598;
   color: #e491c9;
@@ -85,14 +94,9 @@
   color: #e491c9;
 }
 
-/* Allow text cursor on inputs */
-input,
-textarea,
-select {
-  cursor: text;
-}
-
-/* Smooth scroll */
+/* ─────────────────────────────────────────
+   Scroll behavior & overflow
+   ───────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
   overflow: hidden;
@@ -102,9 +106,11 @@ body {
   overflow: hidden;
 }
 
-/* Scrollbar styling */
+/* ─────────────────────────────────────────
+   Scrollbar
+   ───────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -112,7 +118,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #982598;
+  background: linear-gradient(180deg, #982598, #e491c9);
   border-radius: 4px;
 }
 
@@ -120,25 +126,23 @@ body {
   background: #e491c9;
 }
 
-/* Firefox scrollbar */
 * {
   scrollbar-color: #982598 #15173D;
   scrollbar-width: thin;
 }
 
-/* Prevent text selection on body */
+/* ─────────────────────────────────────────
+   User select
+   ───────────────────────────────────────── */
 body {
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
-/* Allow text selection on inputs */
 input,
 textarea {
   -webkit-user-select: text;
   -moz-user-select: text;
-  -ms-user-select: text;
   user-select: text;
 }

@@ -2,129 +2,105 @@ import { useEffect, useRef } from 'react';
 import '../styles/cursor.css';
 
 export default function CustomCursor() {
-  const cursorRef = useRef(null);
-  const particlesRef = useRef([]);
-  const mousePos = useRef({ x: 0, y: 0 });
-  const isHoveringRef = useRef(false);
-  const animationFrameRef = useRef(null);
+  const dotRef = useRef(null);
+  const ringRef = useRef(null);
+  const mouse = useRef({ x: -200, y: -200 });
+  const ring = useRef({ x: -200, y: -200 });
+  const rafRef = useRef(null);
+  const isHovering = useRef(false);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
+    const dot = dotRef.current;
+    const ringEl = ringRef.current;
+    if (!dot || !ringEl) return;
 
-    // Create particle elements
-    const createParticles = () => {
-      const particleCount = 5;
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'cursor-particle';
-        particle.style.left = '0px';
-        particle.style.top = '0px';
-        document.body.appendChild(particle);
-        particlesRef.current.push({
-          element: particle,
-          x: 0,
-          y: 0,
-          vx: 0,
-          vy: 0,
-          delay: i * 0.05,
-        });
+    // Immediately position off-screen until first move
+    dot.style.transform = 'translate(-200px, -200px)';
+    ringEl.style.transform = 'translate(-200px, -200px)';
+
+    const onMouseMove = (e) => {
+      mouse.current.x = e.clientX;
+      mouse.current.y = e.clientY;
+    };
+
+    const onMouseOver = (e) => {
+      const target = e.target;
+      const interactive =
+        target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.tagName === 'INPUT' ||
+        target.tagName === 'TEXTAREA' ||
+        target.tagName === 'SELECT' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.classList.contains('card-hover') ||
+        target.closest('.card-hover');
+
+      if (interactive && !isHovering.current) {
+        isHovering.current = true;
+        dot.classList.add('cursor-hovering');
+        ringEl.classList.add('cursor-ring-hovering');
       }
     };
 
-    createParticles();
+    const onMouseOut = (e) => {
+      const target = e.relatedTarget;
+      if (!target) {
+        isHovering.current = false;
+        dot.classList.remove('cursor-hovering');
+        ringEl.classList.remove('cursor-ring-hovering');
+        return;
+      }
+      const interactive =
+        target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.tagName === 'INPUT' ||
+        target.tagName === 'TEXTAREA' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.classList.contains('card-hover') ||
+        target.closest('.card-hover');
 
-    const handleMouseMove = (e) => {
-      mousePos.current = { x: e.clientX, y: e.clientY };
-    };
-
-    const handleMouseEnter = (e) => {
-      const isInteractive =
-        e.target.tagName === 'A' ||
-        e.target.tagName === 'BUTTON' ||
-        e.target.classList.contains('cursor-pointer') ||
-        e.target.classList.contains('hover:scale-105') ||
-        e.target.closest('button') ||
-        e.target.closest('a') ||
-        e.target.tagName === 'INPUT' ||
-        e.target.tagName === 'TEXTAREA';
-
-      if (isInteractive) {
-        isHoveringRef.current = true;
-        cursor.classList.add('hovering');
+      if (!interactive) {
+        isHovering.current = false;
+        dot.classList.remove('cursor-hovering');
+        ringEl.classList.remove('cursor-ring-hovering');
       }
     };
 
-    const handleMouseLeave = () => {
-      isHoveringRef.current = false;
-      cursor.classList.remove('hovering');
-    };
-
-    // Animation loop for particles
+    // Single RAF loop — uses only transform (GPU composited, no reflow)
     const animate = () => {
-      // Update cursor position
-      cursor.style.left = `${mousePos.current.x}px`;
-      cursor.style.top = `${mousePos.current.y}px`;
+      // Dot snaps instantly to mouse
+      dot.style.transform = `translate(${mouse.current.x}px, ${mouse.current.y}px)`;
 
-      // Update particles
-      particlesRef.current.forEach((particle, index) => {
-        const tx = mousePos.current.x;
-        const ty = mousePos.current.y;
+      // Ring smoothly follows with lerp (easing = 0.12)
+      ring.current.x += (mouse.current.x - ring.current.x) * 0.12;
+      ring.current.y += (mouse.current.y - ring.current.y) * 0.12;
+      ringEl.style.transform = `translate(${ring.current.x}px, ${ring.current.y}px)`;
 
-        // Calculate distance and angle
-        const dx = tx - particle.x;
-        const dy = ty - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        // Faster movement with higher acceleration
-        const acceleration = 0.25 + index * 0.05;
-        particle.vx += (dx * acceleration) / (distance || 1);
-        particle.vy += (dy * acceleration) / (distance || 1);
-
-        // Apply friction
-        particle.vx *= 0.85;
-        particle.vy *= 0.85;
-
-        // Update position
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        // Update DOM
-        particle.element.style.left = `${particle.x}px`;
-        particle.element.style.top = `${particle.y}px`;
-      });
-
-      animationFrameRef.current = requestAnimationFrame(animate);
+      rafRef.current = requestAnimationFrame(animate);
     };
 
     animate();
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    document.addEventListener('mouseenter', handleMouseEnter, { passive: true, capture: true });
-    document.addEventListener('mouseleave', handleMouseLeave, { passive: true, capture: true });
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    document.addEventListener('mouseover', onMouseOver, { passive: true });
+    document.addEventListener('mouseout', onMouseOut, { passive: true });
 
     return () => {
-      cancelAnimationFrame(animationFrameRef.current);
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseenter', handleMouseEnter, true);
-      document.removeEventListener('mouseleave', handleMouseLeave, true);
-      
-      // Clean up particles
-      particlesRef.current.forEach((particle) => {
-        particle.element.remove();
-      });
-      particlesRef.current = [];
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseover', onMouseOver);
+      document.removeEventListener('mouseout', onMouseOut);
     };
   }, []);
 
   return (
-    <div
-      ref={cursorRef}
-      className="cursor-main"
-      style={{
-        left: '0px',
-        top: '0px',
-      }}
-    />
+    <>
+      {/* Dot — snaps to mouse */}
+      <div ref={dotRef} className="cursor-dot" />
+      {/* Ring — lags behind smoothly */}
+      <div ref={ringRef} className="cursor-ring" />
+    </>
   );
 }
