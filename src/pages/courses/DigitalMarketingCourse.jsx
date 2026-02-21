@@ -1,0 +1,62 @@
+export default function DigitalMarketingCourse() {
+  return (
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-3xl font-bold text-[#982598] mb-8">Digital Marketing Course</h2>
+      
+      <div className="bg-[#1c1f4f] p-8 rounded-2xl mb-8">
+        <h3 className="text-2xl font-bold text-[#e491c9] mb-4">Course Overview</h3>
+        <p className="text-[#f1e9e9] mb-6">
+          Master the art and science of digital marketing. Learn SEO, social media marketing, content strategy, 
+          analytics, and paid advertising to build successful digital campaigns.
+        </p>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="text-[#e491c9] font-bold mb-3">Course Details</h4>
+            <ul className="space-y-2 text-[#f1e9e9]">
+              <li>• Duration: 14 weeks</li>
+              <li>• Level: Beginner to Advanced</li>
+              <li>• Format: Online + Live Projects</li>
+              <li>• Certificate: Yes</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-[#e491c9] font-bold mb-3">What You'll Learn</h4>
+            <ul className="space-y-2 text-[#f1e9e9]">
+              <li>• SEO & SEM</li>
+              <li>• Social Media Marketing</li>
+              <li>• Content Strategy</li>
+              <li>• Analytics & Reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#1c1f4f] p-8 rounded-2xl">
+        <h3 className="text-2xl font-bold text-[#e491c9] mb-4">Curriculum</h3>
+        <div className="space-y-4">
+          <div className="border-l-4 border-[#982598] pl-4">
+            <h4 className="text-[#e491c9] font-bold">Module 1: Digital Marketing Fundamentals</h4>
+            <p className="text-[#f1e9e9] text-sm">Overview of digital channels and marketing ecosystem</p>
+          </div>
+          <div className="border-l-4 border-[#982598] pl-4">
+            <h4 className="text-[#e491c9] font-bold">Module 2: SEO & Content Marketing</h4>
+            <p className="text-[#f1e9e9] text-sm">Search optimization and content strategy</p>
+          </div>
+          <div className="border-l-4 border-[#982598] pl-4">
+            <h4 className="text-[#e491c9] font-bold">Module 3: Social Media & Paid Advertising</h4>
+            <p className="text-[#f1e9e9] text-sm">Social platforms and PPC campaigns</p>
+          </div>
+          <div className="border-l-4 border-[#982598] pl-4">
+            <h4 className="text-[#e491c9] font-bold">Module 4: Analytics & Campaign Management</h4>
+            <p className="text-[#f1e9e9] text-sm">Data analysis and campaign optimization</p>
+          </div>
+        </div>
+      </div>
+
+      <button className="mt-8 w-full bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition duration-300 px-8 py-3 rounded-xl font-semibold">
+        Enroll Now
+      </button>
+    </div>
+  );
+}

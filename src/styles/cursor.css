@@ -1,0 +1,144 @@
+/* Hide default cursor */
+* {
+  cursor: none;
+}
+
+/* Main cursor */
+.cursor-main {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.8), 0 0 40px rgba(0, 255, 136, 0.4);
+  transition: width 0.2s ease-out, height 0.2s ease-out, box-shadow 0.2s ease-out;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  border: 2px solid rgba(0, 255, 136, 0.6);
+}
+
+.cursor-main.hovering {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 35px rgba(0, 255, 136, 1), 0 0 60px rgba(0, 255, 136, 0.6), inset 0 0 15px rgba(0, 204, 106, 0.5);
+  border: 2px solid rgba(0, 255, 136, 0.9);
+}
+
+/* Cursor particles */
+.cursor-particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #e491c9;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+  box-shadow: 0 0 8px rgba(228, 145, 201, 0.6);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cursor-particle:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  box-shadow: 0 0 10px rgba(228, 145, 201, 0.7);
+}
+
+.cursor-particle:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  opacity: 0.8;
+}
+
+.cursor-particle:nth-child(3) {
+  width: 5px;
+  height: 5px;
+  opacity: 0.7;
+}
+
+.cursor-particle:nth-child(4) {
+  width: 4px;
+  height: 4px;
+  opacity: 0.6;
+}
+
+.cursor-particle:nth-child(5) {
+  width: 3px;
+  height: 3px;
+  opacity: 0.5;
+}
+
+/* Text selection */
+::selection {
+  background-color: #982598;
+  color: #e491c9;
+}
+
+::-moz-selection {
+  background-color: #982598;
+  color: #e491c9;
+}
+
+/* Allow text cursor on inputs */
+input,
+textarea,
+select {
+  cursor: text;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #15173D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #982598;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e491c9;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: #982598 #15173D;
+  scrollbar-width: thin;
+}
+
+/* Prevent text selection on body */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection on inputs */
+input,
+textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
