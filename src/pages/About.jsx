@@ -1,94 +1,113 @@
 export default function About() {
   const values = [
-    { icon: '💡', title: 'Innovation', desc: 'We constantly push boundaries to deliver cutting-edge solutions.' },
-    { icon: '⭐', title: 'Quality', desc: 'We maintain the highest standards in everything we do.' },
-    { icon: '🤝', title: 'Collaboration', desc: 'We work closely with our clients to achieve their goals.' },
-    { icon: '🔒', title: 'Integrity', desc: 'Transparent and honest in all our relationships.' },
-    { icon: '⚡', title: 'Speed', desc: 'Fast delivery without compromising on excellence.' },
-    { icon: '🌍', title: 'Impact', desc: 'Technology solutions that create real-world change.' },
-  ];
-
-  const team = [
-    { name: 'Alex Chen', role: 'CEO & Founder', icon: '👨‍💼' },
-    { name: 'Sarah Kim', role: 'Lead Designer', icon: '👩‍🎨' },
-    { name: 'Raj Patel', role: 'Head of Engineering', icon: '👨‍💻' },
-    { name: 'Priya Singh', role: 'Marketing Director', icon: '👩‍💼' },
+    { icon: '�', title: 'Agility', desc: 'We iterate quickly and deploy faster to keep your startup ahead of the curve.' },
+    { icon: '⚙️', title: 'Efficiency', desc: 'Streamlined architectures that maximize performance and minimize overhead.' },
+    { icon: '📈', title: 'Scalability', desc: 'Systems built from day one to handle exponential user growth.' },
+    { icon: '🔒', title: 'Security', desc: 'Enterprise-grade protection integrated seamlessly into your workflow.' },
+    { icon: '💡', title: 'Innovation', desc: 'Leveraging the latest tech stack to build future-proof solutions.' },
+    { icon: '🌍', title: 'Global Reach', desc: 'Infrastructure designed for a borderless digital footprint.' },
   ];
 
   return (
-    <div className="min-h-screen bg-[#15173D] text-[#f1e9e9] px-6 md:px-10 py-16 page-transition">
-      <div className="max-w-5xl mx-auto">
-
-        {/* Header */}
-        <div className="text-center mb-16 animate-slideUp">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#e491c9] mb-4">About Us</h1>
-          <p className="text-[#f1e9e9]/60 text-lg max-w-2xl mx-auto">
-            A forward-thinking technology company dedicated to empowering businesses in the digital age.
-          </p>
-        </div>
-
-        {/* Story */}
-        <div className="grid md:grid-cols-2 gap-10 mb-20">
-          <div className="animate-slideInLeft">
-            <h2 className="text-2xl font-bold text-[#982598] mb-4">Our Story</h2>
-            <p className="text-[#f1e9e9]/80 leading-relaxed mb-4">
-              ZentoMax Tech was born from a passion for technology and a drive to make a difference.
-              We believe great software can transform businesses and the lives of the people they serve.
+    <div className="bg-[#15173D] text-[#f1e9e9] page-transition">
+      {/* 
+        Section 1: About Us 
+        Layout: Text Left, Image Right
+      */}
+      <section className="py-20 px-6 md:px-10 lg:pl-20 border-b border-[#982598]/20">
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center gap-10 lg:gap-20">
+          <div className="flex-1 animate-slideInLeft max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-[#e491c9] mb-6">Built for Scale</h1>
+            <p className="text-[#f1e9e9]/80 text-lg md:text-xl leading-relaxed mb-6">
+              ZentoMax Tech engineers high-performance digital infrastructure designed specifically
+              for fast-moving startups and modern enterprises.
             </p>
-            <p className="text-[#f1e9e9]/80 leading-relaxed">
-              With a team of experienced developers, designers, and strategists, we specialize in
-              creating scalable applications, stunning user experiences, and comprehensive digital
-              solutions tailored to your unique needs.
+            <p className="text-[#f1e9e9]/60 text-lg leading-relaxed">
+              We eliminate technical debt before it starts. By leveraging cutting-edge, efficient technologies,
+              we build scalable, low-latency applications that allow your business to pivot rapidly and grow exponentially
+              without infrastructure bottlenecking. From zero to one, and one to one million.
             </p>
           </div>
-          <div className="animate-slideInRight">
-            <h2 className="text-2xl font-bold text-[#982598] mb-4">Our Mission</h2>
-            <div className="bg-[#1c1f4f] border border-[#982598]/20 rounded-2xl p-6">
-              <p className="text-[#f1e9e9]/80 leading-relaxed italic text-lg">
-                "To empower businesses with cutting-edge technology solutions that drive growth,
-                innovation, and success in an increasingly digital world."
-              </p>
+          <div className="flex-1 w-full animate-slideInRight">
+  <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#982598]/40 group border border-[#e491c9]/20">
+    <div className="absolute inset-0 bg-[#982598]/20 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay z-10" />
+    <img
+      src="/abstract_tech_innovation.png"
+      alt="Digital Innovation Architecture"
+      className="w-full h-auto object-cover transform scale-95 group-hover:scale-105 transition-transform duration-700 filter contrast-125 saturate-150"
+    />
+  </div>
+</div>
+        </div>
+      </section>
+
+      {/* 
+        Section 2: Our Mission
+        Layout: Image Left, Text Right
+      */}
+      <section className="py-20 px-6 md:px-10 lg:pr-20 border-b border-[#982598]/20 bg-[#1c1f4f]/30">
+        <div className="max-w-[1400px] mx-auto flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-20">
+          <div className="flex-1 w-full animate-slideInLeft relative">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#e491c9]/30 group border border-[#e491c9]/20">
+              <div className="absolute inset-0 bg-[#e491c9]/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <img
+                src="/abstract_growth_impact.png"
+                alt="Global Network Scale"
+      className="w-full h-auto object-cover transform scale-95 group-hover:scale-105 transition-transform duration-700 filter contrast-125 saturate-150"
+              />
+            </div>
+            {/* Decorative blob behind image */}
+            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-[#982598]/20 rounded-full blur-3xl -z-10 animate-pulse" />
+          </div>
+          <div className="flex-1 animate-slideInRight max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#e491c9] mb-6 leading-tight">
+              Our Mission: Maximizing Operational Efficiency
+            </h2>
+            <p className="text-[#f1e9e9]/80 text-lg leading-relaxed mb-6">
+              Every millisecond counts. Every kilobyte matters. We build lean, modular systems that
+              prioritize speed, reliability, and cost-efficiency.
+            </p>
+            <p className="text-[#f1e9e9]/60 text-lg leading-relaxed mb-8">
+              We empower visionary founders by taking technical complexity out of the equation. Our mission
+              is to provide the robust technological backbone required for startups to disrupt their industries—so
+              you can focus solely on product-market fit and customer acquisition.
+            </p>
+            <div className="inline-flex items-center gap-3 text-[#982598] font-bold text-lg cursor-pointer hover:text-[#e491c9] transition-colors group">
+              Accelerate Your Growth
+              <span className="transform group-hover:translate-x-2 transition-transform">→</span>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Values */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-[#e491c9] mb-10 animate-slideUp">Our Values</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* Values Section */}
+      <section className="py-24 px-6 md:px-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 animate-slideUp">
+            <h2 className="text-4xl font-bold text-[#e491c9] mb-4">The Engineering DNA</h2>
+            <p className="text-[#f1e9e9]/60 text-lg max-w-2xl mx-auto">
+              The core principles that drive our development cycles and architecture choices.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             {values.map((v, idx) => (
               <div
                 key={idx}
-                className="bg-[#1c1f4f] border border-[#982598]/10 hover:border-[#982598]/50 p-6 rounded-2xl card-hover animate-stagger-1 group"
+                className="bg-[#1c1f4f] border border-[#982598]/10 hover:border-[#982598]/50 p-8 rounded-3xl card-hover animate-stagger-1 group text-center"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <div className="text-3xl mb-3 animate-float" style={{ animationDelay: `${idx * 0.3}s` }}>{v.icon}</div>
-                <h3 className="text-[#e491c9] font-bold text-lg mb-2 group-hover:text-white transition-colors">{v.title}</h3>
-                <p className="text-[#f1e9e9]/60 text-sm leading-relaxed">{v.desc}</p>
+                <div className="w-16 h-16 mx-auto bg-[#15173D] rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-inner shadow-[#982598]/20 group-hover:-translate-y-2 transition-transform duration-300">
+                  {v.icon}
+                </div>
+                <h3 className="text-[#e491c9] font-bold text-xl mb-3 group-hover:text-white transition-colors">{v.title}</h3>
+                <p className="text-[#f1e9e9]/60 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Team */}
-        {/* <div>
-          <h2 className="text-3xl font-bold text-center text-[#e491c9] mb-10 animate-slideUp">Meet the Team</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {team.map((member, idx) => (
-              <div
-                key={idx}
-                className="bg-[#1c1f4f] border border-[#982598]/10 hover:border-[#982598]/50 p-6 rounded-2xl card-hover text-center animate-stagger-1"
-                style={{ animationDelay: `${idx * 0.1}s` }}
-              >
-                <div className="text-5xl mb-3">{member.icon}</div>
-                <h3 className="font-bold text-[#e491c9] mb-1">{member.name}</h3>
-                <p className="text-[#f1e9e9]/50 text-sm">{member.role}</p>
-              </div>
-            ))}
-          </div>
-        </div> */}
-
-      </div>
     </div>
   );
 }

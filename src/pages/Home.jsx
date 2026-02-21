@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Hero3DCore from '../components/Hero3DCore';
+import TiltCard from '../components/TiltCard';
 
 function useCountUp(target, duration = 2000, start = false) {
   const [count, setCount] = useState(0);
@@ -43,39 +45,44 @@ export default function Home() {
   return (
     <div className="min-h-full bg-[#15173D] text-[#f1e9e9]">
       {/* Hero */}
-      <section className="relative flex flex-col items-center justify-center text-center px-6 py-28 md:py-36 overflow-hidden">
+      <section className="relative px-6 py-28 md:py-36 lg:py-48 overflow-hidden">
         {/* Floating blobs */}
         <div className="absolute top-10 left-10 w-56 h-56 rounded-full bg-[#982598]/10 blur-3xl animate-float pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-72 h-72 rounded-full bg-[#e491c9]/8 blur-3xl animate-float pointer-events-none" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#982598]/5 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10">
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-[#982598]/40 text-[#e491c9] text-sm font-medium animate-fadeIn bg-[#982598]/10">
-            ✦ Building Tomorrow's Digital World
+        <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+          <div className="flex-1 text-center lg:text-left">
+            <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-[#982598]/40 text-[#e491c9] text-sm font-medium animate-fadeIn bg-[#982598]/10">
+              ✦ Building Tomorrow's Digital World
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-slideUp leading-tight">
+              Build.{' '}
+              <span className="text-gradient-animate">Innovate.</span>
+              <br />
+              <span className="text-[#982598] animate-pulse">Scale.</span>
+            </h1>
+            <p className="max-w-2xl text-lg text-[#f1e9e9]/80 mb-10 animate-slideUp mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
+              ZentoMax Tech delivers modern web solutions, scalable applications,
+              and powerful digital experiences for startups and enterprises.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slideUp" style={{ animationDelay: '0.4s' }}>
+              <Link
+                to="/contact"
+                className="bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition-all duration-300 px-8 py-3 rounded-xl font-semibold btn-animate transform hover:scale-105 active:scale-95 shadow-lg shadow-[#982598]/40"
+              >
+                Get Started →
+              </Link>
+              <Link
+                to="/portfolio"
+                className="border border-[#982598] hover:border-[#e491c9] hover:text-[#e491c9] transition-all duration-300 px-8 py-3 rounded-xl font-semibold hover:bg-[#982598]/10"
+              >
+                View Our Work
+              </Link>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-slideUp leading-tight">
-            Build.{' '}
-            <span className="text-gradient-animate">Innovate.</span>
-            <br />
-            <span className="text-[#982598] animate-pulse">Scale.</span>
-          </h1>
-          <p className="max-w-2xl text-lg text-[#f1e9e9]/80 mb-10 animate-slideUp mx-auto" style={{ animationDelay: '0.2s' }}>
-            ZentoMax Tech delivers modern web solutions, scalable applications,
-            and powerful digital experiences for startups and enterprises.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slideUp" style={{ animationDelay: '0.4s' }}>
-            <Link
-              to="/contact"
-              className="bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition-all duration-300 px-8 py-3 rounded-xl font-semibold btn-animate transform hover:scale-105 active:scale-95 shadow-lg shadow-[#982598]/40"
-            >
-              Get Started →
-            </Link>
-            <Link
-              to="/portfolio"
-              className="border border-[#982598] hover:border-[#e491c9] hover:text-[#e491c9] transition-all duration-300 px-8 py-3 rounded-xl font-semibold hover:bg-[#982598]/10"
-            >
-              View Our Work
-            </Link>
+
+          <div className="flex-1 flex justify-center lg:justify-end animate-fadeIn" style={{ animationDelay: '0.6s' }}>
+            <Hero3DCore />
           </div>
         </div>
       </section>
@@ -109,19 +116,21 @@ export default function Home() {
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((f, idx) => (
-              <Link key={idx} to={f.link} className="block group">
-                <div
-                  className="bg-[#1c1f4f] p-8 rounded-2xl card-hover border border-[#982598]/10 group-hover:border-[#982598]/50 h-full animate-stagger-1"
-                  style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
-                >
-                  <div className="text-4xl mb-4 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>{f.icon}</div>
-                  <h3 className="text-xl font-bold text-[#e491c9] mb-3 group-hover:text-white transition-colors">{f.title}</h3>
-                  <p className="text-[#f1e9e9]/70 leading-relaxed">{f.desc}</p>
-                  <div className="mt-6 text-[#982598] text-sm font-semibold group-hover:text-[#e491c9] transition-colors">
-                    Learn More →
+              <TiltCard key={idx}>
+                <Link to={f.link} className="block group h-full">
+                  <div
+                    className="bg-[#1c1f4f] p-8 rounded-2xl border border-[#982598]/10 group-hover:border-[#982598]/50 h-full animate-stagger-1 shadow-2xl shadow-black/40 group-hover:shadow-[0_0_40px_rgba(152,37,152,0.3)] transition-shadow duration-300"
+                    style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
+                  >
+                    <div className="text-4xl mb-4 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>{f.icon}</div>
+                    <h3 className="text-xl font-bold text-[#e491c9] mb-3 group-hover:text-white transition-colors">{f.title}</h3>
+                    <p className="text-[#f1e9e9]/70 leading-relaxed">{f.desc}</p>
+                    <div className="mt-6 text-[#982598] text-sm font-semibold group-hover:text-[#e491c9] transition-colors">
+                      Learn More →
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </TiltCard>
             ))}
           </div>
         </div>
