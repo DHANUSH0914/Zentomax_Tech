@@ -223,10 +223,10 @@ export default function MySQL() {
                 </div>
             </div>
 
-            {/* Enroll Button */}
+            {/* Enroll Button
             <button className="mt-12 w-full bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition duration-300 px-8 py-4 rounded-xl font-bold text-lg">
                 Enroll Now — Start Your MySQL Journey
-            </button>
+            </button> */}
         </div>
     );
 }

@@ -244,9 +244,9 @@ export default function Java() {
       </div>
 
       {/* Enroll Button */}
-      <button className="mt-12 w-full bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition duration-300 px-8 py-4 rounded-xl font-bold text-lg">
+      {/* <button className="mt-12 w-full bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition duration-300 px-8 py-4 rounded-xl font-bold text-lg">
         Enroll Now - Start Your Java Journey
-      </button>
+      </button> */}
     </div>
   );
 }

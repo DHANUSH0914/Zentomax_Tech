@@ -45,8 +45,8 @@ function App() {
 
       {/* Navbar */}
       <nav className="flex justify-between items-center px-6 md:px-10 py-5 z-40 bg-[#15173D] backdrop-blur-sm bg-opacity-95 shadow-lg shadow-[#982598]/20 animate-slideDown flex-shrink-0">
-        <Link to="/" className="text-2xl font-bold text-[#e491c9] transition-all duration-300 hover:scale-105 tracking-wide">
-          ZentoMax Tech
+        <Link to="/" className="text-2xl font-bold text-[#e491c9] transition-all duration-300 hover:scale-105 tracking-wide flex items-center gap-2">
+          <img src="/Our_Logo.png" alt="ZentoMax Tech Logo" className="h-10 w-auto object-contain drop-shadow-lg scale-[2] md:scale-[2.5] origin-left translate-x-2 md:translate-x-4" />
         </Link>
 
         {/* Desktop Nav */}
@@ -167,7 +167,9 @@ function App() {
         <footer className="border-t border-[#982598]/40 bg-[#1c1f4f]/60 px-6 md:px-10 py-10 animate-fadeIn">
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold text-[#e491c9] mb-3">ZentoMax Tech</h3>
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/Our_Logo.png" alt="ZentoMax Tech Logo" className="h-12 w-auto object-contain drop-shadow-md scale-[1.75] origin-left translate-x-2" />
+              </div>
               <p className="text-[#f1e9e9]/70 text-sm leading-relaxed">
                 Delivering modern web solutions, scalable applications, and powerful digital experiences.
               </p>

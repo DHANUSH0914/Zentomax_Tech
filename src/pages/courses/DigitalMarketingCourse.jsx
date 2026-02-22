@@ -54,9 +54,9 @@ export default function DigitalMarketingCourse() {
         </div>
       </div>
 
-      <button className="mt-8 w-full bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition duration-300 px-8 py-3 rounded-xl font-semibold">
+      {/* <button className="mt-8 w-full bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition duration-300 px-8 py-3 rounded-xl font-semibold">
         Enroll Now
-      </button>
+      </button> */}
     </div>
   );
 }
