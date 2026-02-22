@@ -66,12 +66,12 @@ export default function Home() {
               and powerful digital experiences for startups and enterprises.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slideUp" style={{ animationDelay: '0.4s' }}>
-              <Link
+              {/* <Link
                 to="/contact"
                 className="bg-[#982598] hover:bg-[#e491c9] hover:text-[#15173D] transition-all duration-300 px-8 py-3 rounded-xl font-semibold btn-animate transform hover:scale-105 active:scale-95 shadow-lg shadow-[#982598]/40"
               >
                 Get Started →
-              </Link>
+              </Link> */}
               <Link
                 to="/portfolio"
                 className="border border-[#982598] hover:border-[#e491c9] hover:text-[#e491c9] transition-all duration-300 px-8 py-3 rounded-xl font-semibold hover:bg-[#982598]/10"
@@ -119,12 +119,12 @@ export default function Home() {
               <TiltCard key={idx}>
                 <Link to={f.link} className="block group h-full">
                   <div
-                    className="bg-[#1c1f4f] p-8 rounded-2xl border border-[#982598]/10 group-hover:border-[#982598]/50 h-full animate-stagger-1 shadow-2xl shadow-black/40 group-hover:shadow-[0_0_40px_rgba(152,37,152,0.3)] transition-shadow duration-300"
+                    className="bg-[#1c1f4f] p-8 rounded-2xl border border-[#982598]/10 group-hover:border-[#982598]/50 h-full animate-stagger-1 flex flex-col shadow-2xl shadow-black/40 group-hover:shadow-[0_0_40px_rgba(152,37,152,0.3)] transition-shadow duration-300"
                     style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
                   >
                     <div className="text-4xl mb-4 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>{f.icon}</div>
                     <h3 className="text-xl font-bold text-[#e491c9] mb-3 group-hover:text-white transition-colors">{f.title}</h3>
-                    <p className="text-[#f1e9e9]/70 leading-relaxed">{f.desc}</p>
+                    <p className="text-[#f1e9e9]/70 leading-relaxed flex-1">{f.desc}</p>
                     <div className="mt-6 text-[#982598] text-sm font-semibold group-hover:text-[#e491c9] transition-colors">
                       Learn More →
                     </div>

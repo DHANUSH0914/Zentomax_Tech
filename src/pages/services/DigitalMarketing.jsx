@@ -25,12 +25,12 @@ export default function DigitalMarketing() {
         {services.map((service, idx) => (
           <div
             key={service.title}
-            className="bg-[#1c1f4f] p-6 rounded-2xl card-hover border border-[#982598]/10 hover:border-[#982598]/50 animate-stagger-1 group"
+            className="bg-[#1c1f4f] p-6 rounded-2xl card-hover border border-[#982598]/10 hover:border-[#982598]/50 animate-stagger-1 group flex flex-col h-full"
             style={{ animationDelay: `${idx * 0.08}s` }}
           >
             <div className="text-3xl mb-3 animate-float" style={{ animationDelay: `${idx * 0.3}s` }}>{service.icon}</div>
             <h3 className="text-lg font-bold text-[#e491c9] mb-2 group-hover:text-white transition-colors">{service.title}</h3>
-            <p className="text-[#f1e9e9]/70 text-sm leading-relaxed">{service.description}</p>
+            <p className="text-[#f1e9e9]/70 text-sm leading-relaxed flex-1">{service.description}</p>
           </div>
         ))}
       </div>

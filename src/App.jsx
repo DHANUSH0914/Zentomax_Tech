@@ -11,6 +11,8 @@ import Projects from './pages/services/Projects';
 import DigitalMarketing from './pages/services/DigitalMarketing';
 import CoursesLayout from './pages/courses/CoursesLayout';
 import Java from './pages/courses/Java';
+import ReactJS from './pages/courses/Reactjs';
+import MySQL from './pages/courses/Mysql';
 import UIUX from './pages/courses/UIUX';
 import DigitalMarketingCourse from './pages/courses/DigitalMarketingCourse';
 import DataAnalytics from './pages/courses/DataAnalytics';
@@ -151,6 +153,8 @@ function App() {
               <Route path="digital-marketing" element={<PageTransition><DigitalMarketing /></PageTransition>} />
               <Route path="courses" element={<CoursesLayout />}>
                 <Route path="java" element={<PageTransition><Java /></PageTransition>} />
+                <Route path="react" element={<PageTransition><ReactJS /></PageTransition>} />
+                <Route path="mysql" element={<PageTransition><MySQL /></PageTransition>} />
                 <Route path="uiux" element={<PageTransition><UIUX /></PageTransition>} />
                 <Route path="digital-marketing" element={<PageTransition><DigitalMarketingCourse /></PageTransition>} />
                 <Route path="data-analytics" element={<PageTransition><DataAnalytics /></PageTransition>} />

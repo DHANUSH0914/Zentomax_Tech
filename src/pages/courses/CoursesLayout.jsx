@@ -6,9 +6,11 @@ export default function CoursesLayout() {
 
   const courses = [
     { id: 1, icon: '☕', title: 'Java Programming', description: 'Master Java programming from basics to advanced concepts including OOP, data structures, and frameworks.', path: '/services/courses/java', badge: 'Popular' },
-    { id: 2, icon: '🎨', title: 'UI/UX Design', description: 'Learn to create beautiful, user-centered digital experiences with industry tools and methodologies.', path: '/services/courses/uiux', badge: 'Trending' },
-    { id: 3, icon: '📣', title: 'Digital Marketing', description: 'Master the art and science of digital marketing — SEO, social media, PPC, and analytics.', path: '/services/courses/digital-marketing', badge: '' },
-    { id: 4, icon: '📊', title: 'Data Analytics', description: 'Transform raw data into actionable insights with Python, SQL, and modern BI tools.', path: '/services/courses/data-analytics', badge: 'New' },
+    { id: 2, icon: '⚛️', title: 'React JS', description: 'Build modern, interactive web applications with React — from fundamentals to advanced hooks, routing, and deployment.', path: '/services/courses/react', badge: 'Trending' },
+    { id: 3, icon: '🗄️', title: 'MySQL Database', description: 'Master SQL queries, database design, joins, stored procedures, and real-world database projects.', path: '/services/courses/mysql', badge: 'New' },
+    { id: 4, icon: '🎨', title: 'UI/UX Design', description: 'Learn to create beautiful, user-centered digital experiences with industry tools and methodologies.', path: '/services/courses/uiux', badge: '' },
+    { id: 5, icon: '📣', title: 'Digital Marketing', description: 'Master the art and science of digital marketing — SEO, social media, PPC, and analytics.', path: '/services/courses/digital-marketing', badge: '' },
+    { id: 6, icon: '📊', title: 'Data Analytics', description: 'Transform raw data into actionable insights with Python, SQL, and modern BI tools.', path: '/services/courses/data-analytics', badge: 'New' },
   ];
 
   return (

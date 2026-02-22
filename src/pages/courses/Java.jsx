@@ -4,203 +4,106 @@ export default function Java() {
   const [expandedTopics, setExpandedTopics] = useState({});
 
   const curriculum = [
-    {
-      id: 1,
-      title: "Introduction to Java",
-      subtopics: [
-        "History & Features of Java",
-        "JDK, JRE, JVM",
-        "Compilation process",
-        "First Java Program",
-        "Structure of Java program"
-      ],
-      practice: ["Print student details", "Command line arguments demo"]
-    },
-    {
-      id: 2,
-      title: "Data Types & Variables",
-      subtopics: [
-        "Primitive data types",
-        "Non-primitive",
-        "Type casting",
-        "Variables & scope"
-      ],
-      practice: ["Area of circle", "Swap numbers"]
-    },
-    {
-      id: 3,
-      title: "Operators",
-      subtopics: [
-        "Arithmetic",
-        "Relational",
-        "Logical",
-        "Assignment",
-        "Ternary"
-      ],
-      practice: ["Largest of 3 numbers", "Simple calculator"]
-    },
-    {
-      id: 4,
-      title: "Conditional Statements",
-      subtopics: ["if", "if-else", "nested if", "switch"],
-      practice: ["Grade calculation", "Electricity bill"]
-    },
-    {
-      id: 5,
-      title: "Loops",
-      subtopics: ["for", "while", "do-while", "break & continue"],
-      practice: ["Factorial", "Prime number", "Pattern programs"]
-    },
-    {
-      id: 6,
-      title: "Classes & Objects",
-      subtopics: [
-        "Class syntax",
-        "Object creation",
-        "Methods",
-        "Memory concept (stack & heap basic)"
-      ],
-      practice: ["Student class"]
-    },
-    {
-      id: 7,
-      title: "Constructors & this",
-      subtopics: [
-        "Constructor types",
-        "this keyword",
-        "Constructor overloading"
-      ],
-      practice: ["Bank account class"]
-    },
-    {
-      id: 8,
-      title: "Inheritance",
-      subtopics: [
-        "Types of inheritance",
-        "super keyword",
-        "Method overriding"
-      ],
-      practice: ["Vehicle example"]
-    },
-    {
-      id: 9,
-      title: "Polymorphism",
-      subtopics: [
-        "Method overloading",
-        "Method overriding",
-        "Dynamic method dispatch"
-      ],
-      practice: []
-    },
-    {
-      id: 10,
-      title: "Abstraction & Interface",
-      subtopics: [
-        "Abstract class",
-        "Interface",
-        "Difference between abstract & interface",
-        "Encapsulation"
-      ],
-      practice: ["Create payment system using interface"]
-    },
-    {
-      id: 11,
-      title: "Packages & Access Modifiers",
-      subtopics: [
-        "Packages",
-        "public, private, protected, default",
-        "Import statement"
-      ],
-      practice: []
-    },
-    {
-      id: 12,
-      title: "Exception Handling",
-      subtopics: [
-        "Types of exceptions",
-        "try-catch-finally",
-        "throw & throws",
-        "Custom exception"
-      ],
-      practice: ["ATM simulation"]
-    },
-    {
-      id: 13,
-      title: "String & Wrapper Classes",
-      subtopics: [
-        "String methods",
-        "String vs StringBuilder vs StringBuffer",
-        "Wrapper classes",
-        "Autoboxing"
-      ],
-      practice: ["Reverse string", "Palindrome"]
-    },
-    {
-      id: 14,
-      title: "Arrays",
-      subtopics: ["1D arrays", "2D arrays", "Array programs", "Sorting"],
-      practice: ["Second largest", "Duplicate elements"]
-    },
-    {
-      id: 15,
-      title: "Collections Framework (Part 1)",
-      subtopics: [
-        "Collection hierarchy",
-        "List interface",
-        "ArrayList",
-        "LinkedList"
-      ],
-      practice: ["Student list management"]
-    },
-    {
-      id: 16,
-      title: "Collections (Part 2)",
-      subtopics: [
-        "Set (HashSet, TreeSet)",
-        "Map (HashMap, TreeMap)",
-        "Iterator"
-      ],
-      practice: ["Employee management"]
-    },
-    {
-      id: 17,
-      title: "Comparable & Comparator",
-      subtopics: ["Sorting objects", "Custom sorting"],
-      practice: []
-    },
-    {
-      id: 18,
-      title: "Multithreading",
-      subtopics: [
-        "What is thread?",
-        "Thread lifecycle",
-        "Creating thread (2 ways)",
-        "Synchronization basics"
-      ],
-      practice: ["Ticket booking simulation"]
-    },
-    {
-      id: 19,
-      title: "Java 8 Features",
-      subtopics: [
-        "Lambda expressions",
-        "Functional interface",
-        "Stream API basics",
-        "forEach"
-      ],
-      practice: ["Filter employees using stream"]
-    },
-    {
-      id: 20,
-      title: "Final Mini Project + Revision",
-      subtopics: [
-        "Student Management",
-        "Library Management",
-        "Employee Payroll"
-      ],
-      practice: ["Add, Update, Delete, Search, Sort"]
-    }
-  ];
+  {
+    id: 1,
+    title: "Module 1: Core Java Fundamentals",
+    subtopics: [
+      "Introduction to Java",
+      "History & Features of Java",
+      "JDK, JRE, JVM",
+      "Compilation Process",
+      "Structure of Java Program",
+      "Data Types & Variables",
+      "Type Casting",
+      "Operators",
+      "Conditional Statements (if, switch)",
+      "Loops (for, while, do-while)",
+      "Break & Continue",
+      "Pattern Programs"
+    ],
+    practice: [
+      "Print Student Details",
+      "Largest of 3 Numbers",
+      "Grade Calculation",
+      "Factorial & Prime Number",
+      "Simple Calculator"
+    ]
+  },
+  {
+    id: 2,
+    title: "Module 2: Object-Oriented Programming (OOP)",
+    subtopics: [
+      "Classes & Objects",
+      "Methods",
+      "Constructors & Constructor Overloading",
+      "this & super Keywords",
+      "Inheritance",
+      "Method Overriding",
+      "Polymorphism (Overloading & Overriding)",
+      "Abstraction",
+      "Interface",
+      "Encapsulation",
+      "Packages & Access Modifiers"
+    ],
+    practice: [
+      "Student Class Implementation",
+      "Bank Account System",
+      "Vehicle Inheritance Example",
+      "Payment System using Interface"
+    ]
+  },
+  {
+    id: 3,
+    title: "Module 3: Advanced Java Concepts",
+    subtopics: [
+      "Exception Handling (try-catch-finally)",
+      "throw & throws",
+      "Custom Exceptions",
+      "String Class",
+      "StringBuilder vs StringBuffer",
+      "Wrapper Classes & Autoboxing",
+      "Arrays (1D & 2D)",
+      "Sorting Techniques",
+      "Collections Framework",
+      "List (ArrayList, LinkedList)",
+      "Set (HashSet, TreeSet)",
+      "Map (HashMap, TreeMap)",
+      "Comparable & Comparator",
+      "Iterator"
+    ],
+    practice: [
+      "ATM Simulation",
+      "Reverse & Palindrome String",
+      "Second Largest in Array",
+      "Student List Management",
+      "Employee Management System"
+    ]
+  },
+  {
+    id: 4,
+    title: "Module 4: Java 8, Multithreading & Project",
+    subtopics: [
+      "Multithreading Basics",
+      "Thread Lifecycle",
+      "Creating Thread (2 Ways)",
+      "Synchronization Basics",
+      "Java 8 Features",
+      "Lambda Expressions",
+      "Functional Interface",
+      "Stream API",
+      "forEach Method",
+      "Final Project Development",
+      "Project Structuring & Best Practices"
+    ],
+    practice: [
+      "Ticket Booking Simulation",
+      "Filter Employees using Stream API",
+      "Student Management System",
+      "Library Management System",
+      "Employee Payroll System"
+    ]
+  }
+];
 
   const toggleTopic = (id) => {
     setExpandedTopics((prev) => ({

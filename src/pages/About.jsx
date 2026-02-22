@@ -1,3 +1,5 @@
+﻿import TiltCard from '../components/TiltCard';
+
 export default function About() {
   const values = [
     { icon: '�', title: 'Agility', desc: 'We iterate quickly and deploy faster to keep your startup ahead of the curve.' },
@@ -14,10 +16,13 @@ export default function About() {
         Section 1: About Us 
         Layout: Text Left, Image Right
       */}
-      <section className="py-20 px-6 md:px-10 lg:pl-20 border-b border-[#982598]/20">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center gap-10 lg:gap-20">
+      <section className="py-20 px-6 md:px-10 border-b border-[#982598]/20">
+        <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
           <div className="flex-1 animate-slideInLeft max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-[#e491c9] mb-6">Built for Scale</h1>
+            <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-[#982598]/40 text-[#e491c9] text-sm font-medium bg-[#982598]/10">
+              ✦ About ZentoMax Tech
+            </div>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-[#e491c9] mb-6 leading-tight">Built for Scale</h1>
             <p className="text-[#f1e9e9]/80 text-lg md:text-xl leading-relaxed mb-6">
               ZentoMax Tech engineers high-performance digital infrastructure designed specifically
               for fast-moving startups and modern enterprises.
@@ -28,16 +33,16 @@ export default function About() {
               without infrastructure bottlenecking. From zero to one, and one to one million.
             </p>
           </div>
-          <div className="flex-1 w-full animate-slideInRight">
-  <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#982598]/40 group border border-[#e491c9]/20">
-    <div className="absolute inset-0 bg-[#982598]/20 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay z-10" />
-    <img
-      src="/abstract_tech_innovation.png"
-      alt="Digital Innovation Architecture"
-      className="w-full h-auto object-cover transform scale-95 group-hover:scale-105 transition-transform duration-700 filter contrast-125 saturate-150"
-    />
-  </div>
-</div>
+          <div className="flex-1 flex justify-center lg:justify-end animate-fadeIn">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#982598]/40 group border border-[#e491c9]/20 w-full max-w-xl">
+              <div className="absolute inset-0 bg-[#982598]/20 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay z-10" />
+              <img
+                src="/abstract_tech_innovation.png"
+                alt="Digital Innovation Architecture"
+                className="w-full h-auto object-cover transform scale-95 group-hover:scale-105 transition-transform duration-700 filter contrast-125 saturate-150"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -45,23 +50,24 @@ export default function About() {
         Section 2: Our Mission
         Layout: Image Left, Text Right
       */}
-      <section className="py-20 px-6 md:px-10 lg:pr-20 border-b border-[#982598]/20 bg-[#1c1f4f]/30">
-        <div className="max-w-[1400px] mx-auto flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-20">
-          <div className="flex-1 w-full animate-slideInLeft relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#e491c9]/30 group border border-[#e491c9]/20">
+      <section className="py-20 px-6 md:px-10 border-b border-[#982598]/20 bg-[#1c1f4f]/30">
+        <div className="max-w-[1400px] mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-20">
+          <div className="flex-1 flex justify-center lg:justify-start animate-fadeIn">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#e491c9]/30 group border border-[#e491c9]/20 w-full max-w-xl">
               <div className="absolute inset-0 bg-[#e491c9]/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
               <img
                 src="/abstract_growth_impact.png"
                 alt="Global Network Scale"
-      className="w-full h-auto object-cover transform scale-95 group-hover:scale-105 transition-transform duration-700 filter contrast-125 saturate-150"
+                className="w-full h-auto object-cover transform scale-95 group-hover:scale-105 transition-transform duration-700 filter contrast-125 saturate-150"
               />
             </div>
-            {/* Decorative blob behind image */}
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-[#982598]/20 rounded-full blur-3xl -z-10 animate-pulse" />
           </div>
           <div className="flex-1 animate-slideInRight max-w-2xl">
+            <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-[#982598]/40 text-[#e491c9] text-sm font-medium bg-[#982598]/10">
+              ✦ Our Mission
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#e491c9] mb-6 leading-tight">
-              Our Mission: Maximizing Operational Efficiency
+              Maximizing Operational Efficiency
             </h2>
             <p className="text-[#f1e9e9]/80 text-lg leading-relaxed mb-6">
               Every millisecond counts. Every kilobyte matters. We build lean, modular systems that
@@ -92,17 +98,18 @@ export default function About() {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             {values.map((v, idx) => (
-              <div
-                key={idx}
-                className="bg-[#1c1f4f] border border-[#982598]/10 hover:border-[#982598]/50 p-8 rounded-3xl card-hover animate-stagger-1 group text-center"
-                style={{ animationDelay: `${idx * 0.1}s` }}
-              >
-                <div className="w-16 h-16 mx-auto bg-[#15173D] rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-inner shadow-[#982598]/20 group-hover:-translate-y-2 transition-transform duration-300">
-                  {v.icon}
+              <TiltCard key={idx} className="h-full">
+                <div
+                  className="bg-[#1c1f4f] border border-[#982598]/10 group-hover:border-[#982598]/50 p-8 rounded-3xl animate-stagger-1 group text-center flex flex-col h-full shadow-2xl shadow-black/40 group-hover:shadow-[0_0_40px_rgba(152,37,152,0.3)] transition-shadow duration-300"
+                  style={{ animationDelay: `${idx * 0.1}s` }}
+                >
+                  <div className="w-16 h-16 mx-auto bg-[#15173D] rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-inner shadow-[#982598]/20 group-hover:scale-110 transition-transform duration-300">
+                    {v.icon}
+                  </div>
+                  <h3 className="text-[#e491c9] font-bold text-xl mb-3 group-hover:text-white transition-colors">{v.title}</h3>
+                  <p className="text-[#f1e9e9]/60 leading-relaxed flex-1">{v.desc}</p>
                 </div>
-                <h3 className="text-[#e491c9] font-bold text-xl mb-3 group-hover:text-white transition-colors">{v.title}</h3>
-                <p className="text-[#f1e9e9]/60 leading-relaxed">{v.desc}</p>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>

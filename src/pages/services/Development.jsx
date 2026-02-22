@@ -9,7 +9,7 @@ export default function Development() {
   ];
 
   const reasons = [
-    { icon: '🏆', title: 'Production Ready', text: 'Expert team with years of production experience scaling apps.' },
+    { icon: '🏆', title: 'Production Ready', text: 'Expert team with Knowleadge of production experience scaling apps.' },
     { icon: '🔧', title: 'Modern Stack', text: 'Latest technologies and industry-leading best practices.' },
     { icon: '📐', title: 'Scalable Core', text: 'Microservices architecture and highly maintainable codebases.' },
     { icon: '⚡', title: 'High Performance', text: 'Optimized routing, asset loading, and minimal latency.' },
@@ -48,7 +48,7 @@ export default function Development() {
       {/* Services Grid */}
       <div className="px-6 md:px-10 mb-20">
   <div className="text-center mb-12 animate-slideUp">
-    <h2 className="text-3xl md:text-4xl font-bold text-[#e491c9] mb-4">Core Competencies</h2>
+    <h2 className="text-3xl md:text-4xl font-bold text-[#e491c9] mb-4">Web Development Services</h2>
     <p className="text-[#f1e9e9]/60 max-w-2xl mx-auto">
       Providing end-to-end technological infrastructure for modern businesses.
     </p>
